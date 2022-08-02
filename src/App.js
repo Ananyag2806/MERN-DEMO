@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [song, setSong] = useState('');
+	const [year, setYear] = useState(0);
+
+	console.log(year);
+
+	return (
+		<div className='App'>
+			<h1>Add Song</h1>
+
+			<label>Song Name</label>
+			<input type='text' onChange={(e) => setSong(e.target.value)} />
+
+			<label>Release Date</label>
+			<input type='number' onChange={(e) => setYear(e.target.value)} />
+
+			<button>Add Song</button>
+
+			<h1>Top Charts</h1>
+		</div>
+	);
 }
 
 export default App;
