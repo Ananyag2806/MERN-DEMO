@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 function App() {
@@ -5,6 +6,10 @@ function App() {
 	const [year, setYear] = useState(0);
 
 	console.log(year);
+
+    const submit = () =>{
+        axios.post('http://localhost:3001/insert', {songName: song, releaseDate: year})
+    }
 
 	return (
 		<div className='App'>
@@ -16,7 +21,7 @@ function App() {
 			<label>Release Date</label>
 			<input type='number' onChange={(e) => setYear(e.target.value)} />
 
-			<button>Add Song</button>
+			<button onClick={submit}>Add Song</button>
 
 			<h1>Top Charts</h1>
 		</div>
